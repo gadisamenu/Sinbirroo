@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Dimmer, Loader } from 'semantic-ui-react';
 
@@ -6,10 +7,10 @@ interface Props{
     content?:string;
 }
 
-export default function LoadingComponent({inverted=true,content='loading...'}:Props){
+export default observer(function LoadingComponent({inverted=true,content='loading...'}:Props){
     return (
         <Dimmer active={true} inverted={inverted}>
             <Loader content={content} />
         </Dimmer>
     )
-}
+})

@@ -1,10 +1,8 @@
-import React, { Fragment, SyntheticEvent, useState } from 'react';
-import { Button, Header, Item, Label, Segment } from 'semantic-ui-react';
+import { Fragment } from 'react';
+import { Header } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 import { observer } from 'mobx-react-lite';
-import { Link } from 'react-router-dom';
 import ActivityListItem from './ActivityListItem';
-import { group } from 'console';
 
 export default observer( function ActivityList(){
     const {activityStore} = useStore()

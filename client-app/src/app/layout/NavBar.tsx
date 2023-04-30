@@ -14,6 +14,7 @@ export default observer(function NavBar()
                 Sinbirroo
             </Menu.Item>
             <Menu.Item as={NavLink} to="/activities" name="Activities" />
+            <Menu.Item as={NavLink} to="/errors" name="Errors" />
 
             <Menu.Item as={NavLink} to="/createactivity">
                 <Button positive content='Create Activity'/>

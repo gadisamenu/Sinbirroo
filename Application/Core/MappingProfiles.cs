@@ -13,7 +13,9 @@ namespace Application.Core
             .ForMember(d=>d.HostUsername,o=> o.MapFrom(a=>a.Attendees.FirstOrDefault(usr=>usr.IsHost).AppUser.UserName));
 
             CreateMap<ActivityAttendee,Profiles.Profile>()
-            .ForAllMembers(o=>o.MapFrom(aa=>aa.AppUser));        
+            .ForMember(p=>p.Username,o=>o.MapFrom(aa=>aa.AppUser.UserName))  
+            .ForMember(p=>p.DisplayName,o=>o.MapFrom(aa=>aa.AppUser.DisplayName))  
+            .ForMember(p=>p.Bio,o=>o.MapFrom(aa=>aa.AppUser.Bio));  
         }
     }
 }

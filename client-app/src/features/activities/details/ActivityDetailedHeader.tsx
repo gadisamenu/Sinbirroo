@@ -61,12 +61,12 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                             onClick={cancleActivityToggle}
                             loading ={loading}
                         />
-                        (<Button 
+                        <Button 
                             as={Link}
                             disabled ={activity.isCancelled}
                             to={`/manage/${activity.id}`} color='orange' floated='right'>
                             Manage Event
-                        </Button>)
+                        </Button>
                         </>
                     :activity.isGoing?
                     (<Button loading={loading} onClick={updateAttendence}>Cancel attendance</Button>):

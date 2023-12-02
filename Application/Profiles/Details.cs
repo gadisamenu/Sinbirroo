@@ -1,11 +1,7 @@
 using Application.Core;
-using Application.Interfaces;
-using Application.Profiles;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Domain;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -19,10 +15,7 @@ namespace Application.Profiles
         public class Handler : IRequestHandler<Query, Result<Profile>>
         {
             private readonly DataContext _context;
-            private readonly IUserAccessor _userAccessor;
             private readonly IMapper _mapper;
-            private readonly IPhotoAccessor _photoAccessor;
-
             public Handler(DataContext context,IMapper mapper)
             {
                 _context = context;

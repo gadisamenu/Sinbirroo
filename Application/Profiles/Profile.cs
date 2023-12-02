@@ -10,4 +10,10 @@ namespace Application.Profiles
         public string Image { get; set; }
         public ICollection<Photo> photos {get; set;}
     }
+
+     public class UpdateProfileDto
+    {
+        public string  DisplayName { get; set; }    
+        public string Bio { get; set; }
+    }
 }

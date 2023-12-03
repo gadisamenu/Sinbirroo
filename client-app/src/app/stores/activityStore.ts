@@ -150,7 +150,7 @@ export default class ActivityStore{
         }
     }
 
-    cancleActivityToggle = async () =>{
+    cancelActivityToggle = async () =>{
         this.loading = true
         try {
             await agent.Activities.attend(this.selectedActivity!.id)
@@ -164,5 +164,9 @@ export default class ActivityStore{
         finally{
             this.setloading(false)
         }
+    }
+
+    clearSelectedActivity = () => {
+        this.selectedActivity = undefined
     }
 }

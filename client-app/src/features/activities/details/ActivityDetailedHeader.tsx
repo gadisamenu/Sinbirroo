@@ -24,7 +24,7 @@ interface Props {
 }
 
 export default observer (function ActivityDetailedHeader({activity}: Props) {
-    const {activityStore:{updateAttendence,loading,cancleActivityToggle}} = useStore();
+    const {activityStore:{updateAttendence,loading,cancelActivityToggle}} = useStore();
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
@@ -58,7 +58,7 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                             floated='left'
                             color={activity.isCancelled?'green':'red'}
                             content = {activity.isCancelled?"Re-activate Activity":"Cancel Activity"}
-                            onClick={cancleActivityToggle}
+                            onClick={cancelActivityToggle}
                             loading ={loading}
                         />
                         <Button 

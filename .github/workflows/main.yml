@@ -31,12 +31,12 @@ jobs:
         with:
           node-version: 21  # Adjust Node.js version as needed
           cache: 'npm'  # Cache npm dependencies
-      - name: Change directory to client-app
-        run: cd client-app
 
       - name: Install dependencies (client-app)
+        working-directory: ./client-app
         run: npm install
 
       - name: Build React application (client-app)
+        working-directory: ./client-app
         run: npm run build  # Adjust build command as needed
 

@@ -6,10 +6,14 @@ on:
   push:
     branches: [ main ]
 
+env:
+  # Set CI environment variable (global for all jobs)
+  CI: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v3
 
@@ -29,11 +33,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 21  # Adjust Node.js version as needed
+          node-version: 20  # Adjust Node.js version as needed
+          cache-dependency-path: ./client-app/package.json
           cache: 'npm'  # Cache npm dependencies
 
+      # Install dependencies (client-app) - Look for package-lock.json inside client-app
       - name: Install dependencies (client-app)
-        working-directory: ./client-app
+        working-directory: ./client-app  
         run: npm install
 
       - name: Build React application (client-app)

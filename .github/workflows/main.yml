@@ -13,20 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Build and Test React application (client-app)
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 21  # Adjust Node.js version as needed
-          cache: 'npm'  # Cache npm dependencies
-
-      - name: Install dependencies (client-app)
-        run: npm install
-
-      - name: Build React application (client-app)
-        run: npm run build  # Adjust build command as needed
-
-      # Build and Test .NET application
+      # Build .NET application
       - name: Use .NET 7
         uses: actions/setup-dotnet@v3
         with:
@@ -37,4 +24,19 @@ jobs:
 
       - name: Build solution
         run: dotnet build ./Sinbirroo.sln --configuration Release
+
+      # Build and Test React application (client-app)
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21  # Adjust Node.js version as needed
+          cache: 'npm'  # Cache npm dependencies
+      - name: Change directory to client-app
+        run: cd client-app
+
+      - name: Install dependencies (client-app)
+        run: npm install
+
+      - name: Build React application (client-app)
+        run: npm run build  # Adjust build command as needed
 
